@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CSV for Forecasting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <video class="background" autoplay loop muted>
+        <source src="{{ url_for('static', filename='video/1.mp4') }}" type="video/mp4">
+    </video>
+    
+    <div class="container">
+        <h1>Upload your CSV file</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".csv" required>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</body>
+</html>

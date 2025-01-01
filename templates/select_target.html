@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Target Variable</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <video class="background" autoplay loop muted>
+        <source src="{{ url_for('static', filename='video/2.mp4') }}" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <h1>Select the target variable to predict</h1>
+        <form action="/forecast" method="post">
+            <input type="hidden" name="filename" value="{{ filename }}">
+            <select name="target_column" required>
+                {% for col in columns %}
+                    <option value="{{ col }}">{{ col }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
